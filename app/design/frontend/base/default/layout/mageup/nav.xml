@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+
+-->
+<layout version="0.1.0">
+    <default>
+        <reference name="top.menu">
+            <remove name="catalog.topnav"/>
+            <block type="mageup_nav/menu" name="mageup.navigation" template="mageup/navigation/menu.phtml"/>
+        </reference>
+    </default>
+</layout>

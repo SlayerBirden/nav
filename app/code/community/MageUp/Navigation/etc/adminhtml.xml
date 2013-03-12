@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MageUp Navigation module
+ *
+ * @category    MageUp
+ * @package     MageUp_Navigation
+ * @copyright   Copyright (c) 2013 MageUp (http://www.mageup.com)
+ * @license     http://www.gnu.org/licenses/gpl.html  Open Source GPL 3.0 license
+ */
+ -->
+<config>
+    <menu>
+        <cms>
+            <children>
+                <navigation translate="title" module="mageup_nav">
+                    <title>Manage Navigation</title>
+                    <action>adminhtml/adminhtml_nav/</action>
+                    <sort_order>50</sort_order>
+                </navigation>
+            </children>
+        </cms>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <cms translate="title" module="mageup_nav">
+                        <children>
+                            <navigation translate="title">
+                                <title>Manage Navigation</title>
+                            </navigation>
+                        </children>
+                    </cms>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
