@@ -23,10 +23,10 @@
 </style>
 <script type="text/javascript">
     Ext.require(['*']);
-    Ext.QuickTips.init();
+//    Ext.QuickTips.init();
 
     Ext.onReady(function() {
-        var store = Ext.create('Ext.data.TreeStore', {
+        var store = Ext.create(Ext.data.TreeStore, {
             proxy: {
                 type: 'ajax',
                 extraParams:{form_key: FORM_KEY},
@@ -62,6 +62,19 @@
                                     + "<?php echo $this->__('Try to use manual Sync button.')?>"
                     );
                 } else {
+                    // account for ajaxExpire
+                    var ajaxExpiredFlag = operation.request.scope.reader.jsonData["ajaxExpired"];
+                    var ajaxRedirectUrl = operation.request.scope.reader.jsonData["ajaxRedirect"];
+                    if (typeof ajaxExpiredFlag != 'undefines' && ajaxExpiredFlag) {
+                        Ext.Msg.alert("Sync Failed",
+                            "<?php echo $this->__('Your session has expired.')?>",
+                            function() {
+                                if (ajaxRedirectUrl){
+                                    window.location.href = ajaxRedirectUrl;
+                                }
+                            }
+                        );
+                    }
                     var i=0;
                     var shouldSync = false;
                     records.each(function(item) {
@@ -82,7 +95,6 @@
                     });
                     if (shouldSync)
                         store.sync();
-
                 }
             },
             onDestroyRecords: function(records, operation, success) {
@@ -92,6 +104,19 @@
                             operation.request.scope.reader.jsonData["message"]
                     );
                 } else {
+                    // account for ajaxExpire
+                    var ajaxExpiredFlag = operation.request.scope.reader.jsonData["ajaxExpired"];
+                    var ajaxRedirectUrl = operation.request.scope.reader.jsonData["ajaxRedirect"];
+                    if (typeof ajaxExpiredFlag != 'undefines' && ajaxExpiredFlag) {
+                        Ext.Msg.alert("Sync Failed",
+                            "<?php echo $this->__('Your session has expired.')?>",
+                            function() {
+                                if (ajaxRedirectUrl){
+                                    window.location.href = ajaxRedirectUrl;
+                                }
+                            }
+                        );
+                    }
                     // on success remove removed array
                     store.removed = [];
                 }
@@ -104,7 +129,7 @@
 //            }
         });
 
-        var tree = Ext.create('Ext.tree.Panel', {
+        var tree = Ext.create(Ext.tree.Panel, {
             store: store,
             viewConfig: {
                 plugins: {
@@ -119,7 +144,7 @@
             useArrows: true,
             selType: 'cellmodel',
             plugins: [
-                Ext.create('Ext.grid.plugin.CellEditing', {
+                Ext.create(Ext.grid.plugin.CellEditing, {
                     clicksToEdit: 2,
                     listeners: {
                         'beforeedit': function(editor, e) {
@@ -225,7 +250,7 @@
             }]
         });
 
-        var store2 = Ext.create('Ext.data.TreeStore', {
+        var store2 = Ext.create(Ext.data.TreeStore, {
             proxy: {
                 type: 'ajax',
                 extraParams:{form_key: FORM_KEY},
@@ -248,7 +273,7 @@
             }
         });
 
-        var tree2 = Ext.create('Ext.tree.Panel', {
+        var tree2 = Ext.create(Ext.tree.Panel, {
             store: store2,
             viewConfig: {
                 plugins: {
@@ -282,7 +307,7 @@
             }]
         });
 
-        var store3 = Ext.create('Ext.data.TreeStore', {
+        var store3 = Ext.create(Ext.data.TreeStore, {
             proxy: {
                 type: 'ajax',
                 extraParams:{form_key: FORM_KEY},
@@ -300,7 +325,7 @@
             fields: ['text', 'url', 'page_id', 'index', 'id', 'depth', 'class']
         });
 
-        var tree3 = Ext.create('Ext.tree.Panel', {
+        var tree3 = Ext.create(Ext.tree.Panel, {
             store: store3,
             viewConfig: {
                 plugins: {
