@@ -1,0 +1,15 @@
+<?php
+/**
+ * Top menu for store
+ *
+ * @var $this Maketok_Navigation_Block_Menu
+ * @see Maketok_Navigation_Block_Menu
+ */
+?>
+<?php if(!$this->getIsEmpty()): ?>
+<div class="nav-container">
+    <ul id="nav">
+        <?php echo $this->renderMenu() ?>
+    </ul>
+</div>
+<?php endif ?>

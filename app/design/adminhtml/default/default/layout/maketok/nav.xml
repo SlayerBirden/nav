@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_adminhtml_nav_index>
+        <update handle="extjs"/>
+        <referense name="head">
+            <action method="setTitle" translate="title"><title>Maketok Navigation Management</title></action>
+        </referense>
+        <reference name="menu">
+            <action method="setActive"><menupath>cms/navigation</menupath></action>
+        </reference>
+        <reference name="content">
+            <block type="maketok_nav/adminhtml_menu" name="maketok.nav.menu"/>
+        </reference>
+    </adminhtml_adminhtml_nav_index>
+
+    <extjs>
+        <reference name="head">
+            <action method="addJs"><script>sencha/extjs4/ext-all-debug.js</script></action>
+            <action method="addItem"><type>js_css</type><name>sencha/resources/css/ext-all.css</name></action>
+        </reference>
+    </extjs>
+</layout>

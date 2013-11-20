@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+
+-->
+<layout version="0.1.0">
+    <default>
+        <reference name="top.menu">
+            <remove name="catalog.topnav"/>
+            <block type="maketok_nav/menu" name="maketok.navigation" template="maketok/navigation/menu.phtml"/>
+        </reference>
+    </default>
+</layout>

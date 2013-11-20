@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Maketok Navigation module
+ *
+ * @category    Maketok
+ * @package     Maketok_Navigation
+ * @copyright   Copyright (c) 2013 Maketok (http://www.maketok.com)
+ * @license     http://www.gnu.org/licenses/gpl.html  Open Source GPL 3.0 license
+ */
+ -->
+<config>
+    <menu>
+        <cms>
+            <children>
+                <navigation translate="title" module="maketok_nav">
+                    <title>Manage Navigation</title>
+                    <action>adminhtml/adminhtml_nav/</action>
+                    <sort_order>50</sort_order>
+                </navigation>
+            </children>
+        </cms>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <cms translate="title" module="maketok_nav">
+                        <children>
+                            <navigation translate="title">
+                                <title>Manage Navigation</title>
+                            </navigation>
+                        </children>
+                    </cms>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

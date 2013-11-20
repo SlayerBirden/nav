@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Maketok Navigation module
+ *
+ * @category    Maketok
+ * @package     Maketok_Navigation
+ * @copyright   Copyright (c) 2013 Maketok (http://www.maketok.com)
+ * @license     http://www.gnu.org/licenses/gpl.html  Open Source GPL 3.0 license
+ */
+ -->
+<config>
+    <modules>
+        <Maketok_Navigation>
+            <version>0.2.0</version>
+        </Maketok_Navigation>
+    </modules>
+    <global>
+        <models>
+            <maketok_nav>
+                <class>Maketok_Navigation_Model</class>
+                <resourceModel>maketok_nav_resource</resourceModel>
+            </maketok_nav>
+            <maketok_nav_resource>
+                <class>Maketok_Navigation_Model_Resource</class>
+                <entities>
+                    <menuitem>
+                        <table>maketok_navigation_menuitem</table>
+                    </menuitem>
+                    <menuitem_store>
+                        <table>maketok_navigation_menuitem_store</table>
+                    </menuitem_store>
+                </entities>
+            </maketok_nav_resource>
+        </models>
+        <helpers>
+            <maketok_nav>
+                <class>Maketok_Navigation_Helper</class>
+            </maketok_nav>
+        </helpers>
+        <resources>
+            <maketok_nav_setup>
+                <setup>
+                    <module>Maketok_Navigation</module>
+                </setup>
+            </maketok_nav_setup>
+        </resources>
+        <blocks>
+            <maketok_nav><class>Maketok_Navigation_Block</class></maketok_nav>
+        </blocks>
+    </global>
+    <frontend>
+        <routers>
+            <maketok_nav>
+                <use>standard</use>
+                <args>
+                    <module>Maketok_Navigation</module>
+                    <frontName>maketok_nav</frontName>
+                </args>
+            </maketok_nav>
+        </routers>
+        <translate>
+            <modules>
+                <Maketok_Navigation>
+                    <files>
+                        <default>Maketok_Navigation.csv</default>
+                    </files>
+                </Maketok_Navigation>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <maketok_nav>
+                    <file>maketok/nav.xml</file>
+                </maketok_nav>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+         <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <maketok_nav after="Mage_Adminhtml">Maketok_Navigation</maketok_nav>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Maketok_Navigation>
+                    <files>
+                        <default>Maketok_Navigation.csv</default>
+                    </files>
+                </Maketok_Navigation>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <maketok_nav>
+                    <file>maketok/nav.xml</file>
+                </maketok_nav>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

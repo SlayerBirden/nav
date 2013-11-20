@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <!--
 /**
- * MageUp Navigation module
+ * Maketok Navigation module
  *
  * @category    etc
- * @package     MageUp_Navigation
- * @copyright   Copyright (c) 2013 MageUp (http://www.mageup.com)
+ * @package     Maketok_Navigation
+ * @copyright   Copyright (c) 2013 Maketok (http://www.maketok.com)
  * @license     http://www.gnu.org/licenses/gpl.html  Open Source GPL 3.0 license
  */
 -->
 <config>
     <modules>
-        <MageUp_Navigation>
+        <Maketok_Navigation>
             <active>true</active>
             <codePool>community</codePool>
             <depends>
@@ -19,6 +19,6 @@
                 <Mage_Cms/>
                 <Mage_Page/>
             </depends>
-        </MageUp_Navigation>
+        </Maketok_Navigation>
     </modules>
 </config>

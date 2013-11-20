@@ -1,0 +1,15 @@
+<?php
+/**
+ * @var $this Maketok_Navigation_Block_Menu_Item
+ */
+?>
+<li class="<?php echo $this->getLiClass()?>">
+    <a href="<?php echo $this->getLinkUrl()?>" class="<?php echo $this->getAClass()?>">
+        <span><?php echo $this->escapeHtml($this->getTitle())?></span>
+    </a>
+    <?php if ($this->hasChildren()):?>
+    <ul class="<?php echo $this->getChildrenListClass()?>">
+        <?php echo $this->getChildrenHtml()?>
+    </ul>
+    <?php endif;?>
+</li>
